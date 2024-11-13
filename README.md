@@ -35,5 +35,11 @@ mysql --host=127.0.0.1 -u cross -p123456 --ssl-ca=/etc/mysql/conf.d/ssl/ca-cert.
 
 # refer to
 https://github.com/chio-nzgft/docker-MariaDB-with-SSL
+
 https://dmachard.github.io/posts/0056-mariadb-enable-tls/
+
 https://dmachard.github.io/posts/0057-create-self-certificate/
+
+https://hackmd.io/@ChaosFractal/r1hoCnaR_
+
+
