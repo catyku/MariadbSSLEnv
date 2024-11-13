@@ -1,0 +1,29 @@
+
+services:
+  #postgres service
+  mariadb:
+    container_name: ssl_mariadb
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-Passw@rd}
+      MYSQL_DATABASE: izero
+      TZ: Asia/Taipei
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+      - ./mariadb/log:/var/log/mysql
+      - ./mariadb/conf.d/docker.cnf:/etc/mysql/conf.d/docker.cnf
+      - ./ssl:/etc/mysql/conf.d/ssl
+      # - ./backup/data.backup:/data/data.backup
+
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 512M
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 1024M
+

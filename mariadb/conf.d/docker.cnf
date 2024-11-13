@@ -1,0 +1,17 @@
+[mariadbd]
+
+log_error       =/var/log/mysql/mysql_error.log
+log_bin
+expire-logs-days = 15
+max-binlog-size = 500M
+general_log_file=/var/log/mysql/mysql.log
+general_log     =1
+slow_query_log  =1
+slow_query_log_file=/var/log/mysql/mysql_slow.log
+long_query_time =2
+log_queries_not_using_indexes = 1
+
+
+ssl-ca = /etc/mysql/conf.d/ssl/ca-cert.pem
+ssl-cert = /etc/mysql/conf.d/ssl/server-cert.pem
+ssl-key = /etc/mysql/conf.d/ssl/server-key.pem
