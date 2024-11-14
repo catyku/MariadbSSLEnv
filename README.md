@@ -40,6 +40,23 @@ grant all on *.* to 'cross'@'192.168.0.17' identified by '123456'  require ssl;
 mariadb --host=127.0.0.1 -u cross -p123456 --ssl-ca=/etc/mysql/conf.d/ssl/ca-cert.pem --ssl-cert=/etc/mysql/conf.d/ssl/client-cert.pem --ssl-key=/etc/mysql/conf.d/ssl/client-key.pem -e 'status'
 ```
 
+# check ssl status
+```
+mariadb -u root
+mysql> SHOW GLOBAL VARIABLES LIKE 'have_ssl';
++---------------+-----------------+
+| Variable_name | Value           |
++---------------+-----------------+
+| have_ssl      | YES             |
++---------------+-----------------+
+mysql> SHOW GLOBAL VARIABLES LIKE 'tls_version';
++---------------+-----------------+
+| Variable_name | Value           |
++---------------+-----------------+
+| tls_version   | TLSv1.2,TLSv1.3 |
++---------------+-----------------+
+
+```
 
 # refer to
 https://github.com/chio-nzgft/docker-MariaDB-with-SSL
