@@ -9,8 +9,15 @@
 ```
 ./generator.sh
 ```
+3. change directory owner
 
-3. start mariadb docker
+```
+chown -R systemd-coredump:systemd-coredump ssl
+
+chown -R systemd-coredump:systemd-coredump mariadb/log
+```
+
+4. start mariadb docker
 
 ```
 docker compose up -d 
@@ -18,10 +25,11 @@ docker compose up -d
 
 ## other (not test) 
 
+
 # create user for ssl
 
 ```
-mysql --host=127.0.0.1 -u root -pPassw@rd
+mariadb --host=127.0.0.1 -u root -pPassw@rd
 
 grant all on *.* to 'cross'@'192.168.0.17' identified by '123456'  require ssl;
 ```
@@ -29,7 +37,7 @@ grant all on *.* to 'cross'@'192.168.0.17' identified by '123456'  require ssl;
 # check ssl user
 
 ```
-mysql --host=127.0.0.1 -u cross -p123456 --ssl-ca=/etc/mysql/conf.d/ssl/ca-cert.pem --ssl-cert=/etc/mysql/conf.d/ssl/client-cert.pem --ssl-key=/etc/mysql/conf.d/ssl/client-key.pem -e 'status'
+mariadb --host=127.0.0.1 -u cross -p123456 --ssl-ca=/etc/mysql/conf.d/ssl/ca-cert.pem --ssl-cert=/etc/mysql/conf.d/ssl/client-cert.pem --ssl-key=/etc/mysql/conf.d/ssl/client-key.pem -e 'status'
 ```
 
 
