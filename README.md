@@ -12,8 +12,8 @@
 3. change directory owner
 
 ```
-chown -R systemd-coredump:systemd-coredump ssl
-
+chown -R systemd-coredump:systemd-coredump ssl/
+## if mariadb/log not exist ,mkdir it
 chown -R systemd-coredump:systemd-coredump mariadb/log
 ```
 
