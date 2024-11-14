@@ -15,3 +15,11 @@ log_queries_not_using_indexes = 1
 ssl-ca = /etc/mysql/conf.d/ssl/ca-cert.pem
 ssl-cert = /etc/mysql/conf.d/ssl/server-cert.pem
 ssl-key = /etc/mysql/conf.d/ssl/server-key.pem
+require_secure_transport = on
+tls_version = TLSv1.2,TLSv1.3
+
+[client]
+
+ssl-ca = /etc/mysql/conf.d/ssl/ca-cert.pem
+ssl-cert = /etc/mysql/conf.d/ssl/client-cert.pem
+ssl-key = /etc/mysql/conf.d/ssl/client-key.pem
